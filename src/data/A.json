@@ -1,0 +1,111 @@
+{
+  "name": "Lot A",
+  "content": [
+    {
+      "name": "Matériel hors sac",
+      "content": [
+        {
+          "name": "Relevage/Brancardage",
+          "content": [
+            {"name":"Brancard souple", "number": 1 },
+            {"name":"Draps usage unique", "number": 5},
+            {"name":"Portoir souple", "number": 1 },
+            {"name":"Couvertures bactériostatique", "number": 2 },
+            {"name":"Chaise portoir pliable", "number": 1 },
+            {"name":"Brancard Cuillère", "number": 1 }
+          ]
+        },
+        {
+          "name": "Immobilisation",
+          "content": [
+            { "name":"Matelas à dépression (M.I.D)", "number": 1},
+            { "name":"Plan dur + araignée + Immobilisateur de tête", "number": 1},
+            { "name":"Attelle Cervico-Thoracique (A.C.T.)", "number": 1},
+            { "name":"Jeux de collier Sober", "number": 1},
+            { "name":"Jeux d'attelle à dépression + aluforme", "number": 1}
+          ]
+        },
+        {
+          "name": "Urgences Vitale",
+          "content": [
+            {"number":1, "name":"Cousin P.L.S."},
+            {"number":1, "name":"Aspirateur de mucosité électrique", "checks": [{"name": "En charge", "type": "check"}, {"name": "Fonctionne aspiration maximale", "type": "check"}]},
+            {"number":2, "name":"Bouteille O2 de 5L", "checks": [{"name": "Pression > 200bar ou autre bouteille", "type": "check"}]},
+            {"number":2, "name":"D.S.A", "checks": [{"name": "S'allume, batterie OK", "type": "check"}]},
+            {"number":2, "name":"Paire d'électrodes enfant", "checks": [{"name": "Date de péremption", "type": "date"}]},
+            {"number":4, "name":"Paire d’électrodes adultes", "checks": [{"name": "Date de péremption", "type": "date"}]}
+          ]
+        },
+        {
+          "name": "Kits",
+          "content": [
+            {"number": 1, "name": "Kit brûlure", "checks": [{"name": "Date de péremption", "type": "date"}]},
+            {"number": 1, "name": "Kit A.E.V.", "checks": [{"name": "Date de péremption", "type": "date"}]},
+            {"number": 1, "name": "Kit Accouchement", "checks": [{"name": "Date de péremption", "type": "date"}]},
+            {"number": 1, "name": "Kit Section de membre", "checks": [{"name": "Date de péremption", "type": "date"}]}
+          ]
+        },
+        {
+          "name": "Protection",
+          "content": [
+            { "number" :2, "name": "Carton jaune (D.A.S.R.I.)"},
+            { "number" :1, "name": "Boite de gants non poudrés taille S (6/7)"},
+            { "number" :1, "name": "Boite de gants non poudrés taille M (7/8)"},
+            { "number" :1, "name": "Boite de gants non poudrés taille L (8/9)"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sac PS",
+      "content": []
+    },
+    {
+      "name": "Sac O2",
+      "content": [
+        {
+          "name": "Poche extérieur gauche ",
+          "content": [
+            { "number": 4, "name": "Paires de lunette de protection"},
+            { "number": 1, "name": "Aspirateur de mucosité"},
+            { "number": 5, "name": "Sondes d’aspiration Adulte"},
+            { "number": 3, "name": "Sondes d’aspiration Enfant"},
+            { "number": 1, "name": "Canule de Guedel Taille 0"},
+            { "number": 1, "name": "Canule de Guedel Taille 1"},
+            { "number": 1, "name": "Canule de Guedel Taille 2"},
+            { "number": 1, "name": "Canule de Guedel Taille 3"},
+            { "number": 1, "name": "Canule de Guedel Taille 4"},
+            { "number": 1, "name": "Canule de Guedel Taille 5"}
+          ]
+        },
+        {
+          "name": "Poche extérieur droite",
+          "content": [
+            {"number" :2, "name": "Masques Haute Concentration d'O2 adulte"},
+            {"number" :1, "name": "Masque Moyenne Concentration d'O2 adulte"},
+            {"number" :1, "name": "Paire de Lunette d’inhalation d'O2 adulte"},
+            {"number" :2, "name": "Masques Haute Concentration d'O2 enfant"},
+            {"number" :1, "name": "Masque Moyenne Concentration d'O2 enfant"},
+            {"number" :1, "name": "Paire de Lunette d’inhalation d'O2 enfant"}
+          ]
+        },
+        {
+          "name": "Poche avant basse",
+          "content": [
+            {"number": 1, "name": "Insufflateur manuel Nourrisson"},
+            {"number": 1, "name": "Insufflateur manuel Enfant"},
+            {"number": 1, "name": "Insufflateur manuel Adulte"}
+          ]
+        },
+        {
+          "name": "Poche centrale",
+          "content": [
+            {"number": 1, "name": "Bouteille O2 de 5 L (200 bars)"},
+            {"number": 1, "name": "Collier cervical réglable adulte"},
+            {"number": 1, "name": "Collier cervical réglable pédiatrique"}
+          ]
+        }
+      ]
+    }
+  ]
+}

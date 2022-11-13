@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { Verification } from './components/Check';
+import LotA from "./data/A.json";
+import { buildChecksForContainer } from './scripts/buildChecks';
+
+const checks = buildChecksForContainer(LotA);
 
 function App() {
+
+  const [checkIndex, setCheckIndex] = useState(0);
+  const [issues, setIssues] = useState<string[]>([]);
+
+  const onOk = () => {
+    setCheckIndex(checkIndex+1)
+  }
+
+  const onIssue = (issue: string) => {
+    setIssues([...issues, issue])
+    setCheckIndex(checkIndex+1)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {checks[checkIndex] !== undefined
+      ? <Verification verification={checks[checkIndex]} onOk={onOk} onIssue={onIssue}/>
+      : <div>
+          {issues.map(issue => <><span>{issue}</span><br /></>)}
+        </div>}
     </div>
   );
 }
