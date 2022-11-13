@@ -1,4 +1,4 @@
-import { Container, isCheckable, isContainer, Prop } from "../business/Prop";
+import { Container, isCheckable, isContainer } from "../business/Prop";
 import { Verification } from "../business/Verification";
 
 
@@ -8,7 +8,9 @@ export const buildChecksForContainer = (itemToCheck: Container, containerName?: 
   const verifications: Verification[] = []
   const location = (containerName ? (containerName + " > ") : '') + itemToCheck.name
 
-  verifications.push({ location, type: 'presence', items: itemToCheck.content.map(prop => prop.name)})
+  if (itemToCheck.content.length > 0) {
+    verifications.push({ location, type: 'presence', items: itemToCheck.content.map(prop => prop.name)})
+  }
 
   const containerChildren = itemToCheck.content.filter(isContainer);
   containerChildren.forEach(

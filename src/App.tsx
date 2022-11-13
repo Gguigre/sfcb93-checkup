@@ -20,6 +20,9 @@ function App() {
     setCheckIndex(checkIndex+1)
   }
 
+  console.log(checks[checkIndex]);
+  
+
   return (
     <div className="App">
       {checks[checkIndex] !== undefined

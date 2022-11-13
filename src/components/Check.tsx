@@ -11,44 +11,53 @@ export const Verification: React.FC<Props> = ({verification, onOk, onIssue}) => 
 
   if (verification.type === 'presence') {
     return verification.items.length > 0 ?
-    <div style={{padding: 10}}>
-      <h3>Vérifier que dans <strong style={{color: 'red'}}>{verification.location}</strong> il y a</h3>
-      {verification.items.map(item => <span><br />{item}</span>)}
-      <div>
-        <button onClick={onOk}>
-          Vérifié
-        </button>
-        <button>
-          Problème
-        </button>
+    <div style={{flexDirection: "column", display: "flex", height: '100%'}}>
+      <div style={{padding: 24, flex: 1, display: 'flex', flexDirection: "column"}}>
+        <h3>Vérifier que dans <strong style={{color: 'red'}}>{verification.location}</strong> il y a</h3>
+        <div style={{flex: 1}}>{verification.items.map(item => <span><br />{item}</span>)}</div>
+        <div style={{display: "flex", justifyContent: "space-around"}}>
+          <button onClick={() => onIssue('')} style={{backgroundColor: "red", padding: 8}}>
+            <strong>Problème</strong>
+          </button>
+          <button onClick={onOk} style={{backgroundColor: "greenyellow", padding: 8}}>
+            <strong>Vérifié</strong>
+          </button>
+        </div>
       </div>
     </div>
     : null
   } else if (verification.type === 'date') {
-    return <div style={{padding: 10}}>
+    return <div style={{flexDirection: "column", display: "flex", height: '100%'}}>
+    <div style={{padding: 24, flex: 1, display: 'flex', flexDirection: "column"}}>
       <h3>Vérifier la date de <strong style={{color: 'red'}}>{verification.location}</strong><br /></h3>
-      {verification.name} : <input type={"month"}/>
-      <div>
-        <button onClick={onOk}>
-          Vérifié
-        </button>
-        <button>
-          Problème
-        </button>
+      <div style={{flex: 1}}>{verification.name} : <input type={"month"}/></div>
+      <div style={{display: "flex", justifyContent: "space-around"}}>
+          <button onClick={() => onIssue('')} style={{backgroundColor: "red", padding: 8}}>
+            <strong>Problème</strong>
+          </button>
+          <button onClick={onOk} style={{backgroundColor: "greenyellow", padding: 8}}>
+            <strong>Vérifié</strong>
+          </button>
+        </div>
       </div>
     </div>
   } else if (verification.type === 'check') {
-    return <div style={{padding: 10}}>
-      <h3>Vérification pour <strong style={{color: 'red'}}>{verification.location}</strong><br /><strong style={{color: 'green'}}>{verification.name}</strong></h3>
-      <div>
-        <button onClick={onOk}>
-          Vérifié
-        </button>
-        <button>
-          Problème
-        </button>
-      </div>
-    </div>
+    return <div style={{flexDirection: "column", display: "flex", height: '100%'}}>
+            <div style={{padding: 24, flex: 1, display: 'flex', flexDirection: "column"}}>
+              <h3>Vérification pour <strong style={{color: 'red'}}>{verification.location}</strong></h3>
+              <div style={{flex: 1}}>
+                <strong style={{color: 'green'}}>{verification.name}</strong>
+              </div>
+              <div style={{display: "flex", justifyContent: "space-around"}}>
+                <button onClick={() => onIssue('')} style={{backgroundColor: "red", padding: 8}}>
+                  <strong>Problème</strong>
+                </button>
+                <button onClick={onOk} style={{backgroundColor: "greenyellow", padding: 8}}>
+                  <strong>Vérifié</strong>
+                </button>
+              </div>
+            </div>
+          </div>
   }
 
   return null;
