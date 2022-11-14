@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useState, useCallback } from "react";
 import styled from 'styled-components'
 import { Review as ReviewType, PresenceReview as PresenceReviewType, DateReview as DateReviewType, CheckReview as CheckReviewType } from "../business/review";
 import { Buttons } from "./Buttons";
@@ -10,14 +10,14 @@ type Props = {
   onIssue: (issue: string) => void,
 }
 
-const GenericReview = ({ onOk, onIssue, Title, children }: PropsWithChildren<{onOk: () => void, onIssue: () => void, Title: React.ReactNode}>) => {
+const GenericReview = ({ onOk, onIssue, Title, canSubmit, children }: PropsWithChildren<{onOk: () => void, onIssue: () => void, Title: React.ReactNode, canSubmit?: boolean}>) => {
   return <Container>
   <ContentContainer>
     {Title}
     <Content>
       {children}
     </Content>
-    <Buttons onOk={onOk} onIssue={onIssue} />
+    <Buttons onOk={onOk} onIssue={onIssue} canSubmit={canSubmit} />
   </ContentContainer>
 </Container>
 }
@@ -27,12 +27,28 @@ const PresenceReview: React.FC<{
   onOk: () => void,
   onIssue: (issue: string) => void,
 }> = ({review, onOk, onIssue}) => {
+
+  const [nbChecked, setNbChecked] = useState(0);
+
+  const onValueChange = useCallback((value: boolean) => {
+    if (value) {
+      setNbChecked(currentNb => currentNb+1)
+    } else {
+      setNbChecked(currentNb => currentNb-1)
+    }
+
+    console.warn(nbChecked);
+    
+
+  }, [nbChecked, setNbChecked])
+
   return review.items.length > 0 ?
   <GenericReview
     Title={<h3>Vérifier que dans <RedText>{review.location}</RedText> il y a</h3>}
     onOk={onOk}
-    onIssue={() => onIssue('problème avec ' + review.location)}>
-    {review.items.map(item => <Check key={item} onValueChange={() => {}} label={item}></Check>)}
+    onIssue={() => onIssue('problème avec ' + review.location)}
+    canSubmit={nbChecked === review.items.length}>
+    {review.items.map(item => <Check key={item} onValueChange={onValueChange} label={item}></Check>)}
   </GenericReview>
   : null
 }
@@ -69,7 +85,7 @@ export const Review: React.FC<Props> = ({review, ...props}) => {
     case 'check':
       return <CheckReview review={review} {...props} />
     case 'presence':
-      return <PresenceReview review={review} {...props} />
+      return <PresenceReview key={JSON.stringify(review)} review={review} {...props} />
     case 'date':
       return <DateReview review={review} {...props} />
   }

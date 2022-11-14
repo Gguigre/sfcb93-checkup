@@ -4,14 +4,15 @@ import styled from 'styled-components'
 type Props = {
   onOk: () => void,
   onIssue: () => void,
+  canSubmit?: boolean,
 }
 
-export const Buttons: React.FC<Props> = ({onOk, onIssue}) => {
+export const Buttons: React.FC<Props> = ({onOk, onIssue, canSubmit}) => {
   return <Container>
   <Button onClick={onIssue}>
     <strong>❌ Problème</strong>
   </Button>
-  <Button onClick={onOk}>
+  <Button onClick={onOk} disabled={!canSubmit}>
     <strong>✅ Vérifié</strong>
   </Button>
 </Container>

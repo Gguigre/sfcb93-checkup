@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 
 type Props = {
@@ -8,7 +8,13 @@ type Props = {
 
 export const Check: React.FC<Props> = ({ label, onValueChange }) => {
   const [isChecked, setIsChecked] = useState(false)
-  return <Container isChecked={isChecked} onClick={() => setIsChecked(!isChecked)}>
+
+  const onToggle = useCallback(() => {
+    setIsChecked(check => !check);
+    onValueChange && onValueChange(!isChecked);
+  },[isChecked, setIsChecked, onValueChange])
+
+  return <Container isChecked={isChecked} onClick={onToggle}>
     {isChecked ? '✅ ' : '🔘 '}
     <strong>{label}</strong>
   </Container>
