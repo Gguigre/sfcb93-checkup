@@ -8,8 +8,12 @@ export const buildChecksForContainer = (itemToCheck: Container, containerName?: 
   const verifications: Verification[] = []
   const location = (containerName ? (containerName + " > ") : '') + itemToCheck.name
 
-  if (itemToCheck.content.length > 0) {
-    verifications.push({ location, type: 'presence', items: itemToCheck.content.map(prop => prop.name)})
+  const isEmpty = itemToCheck.content.length === 0
+  if (!isEmpty) {
+    const hasLeaf = itemToCheck.content.some(child => (child as Container).content === undefined)
+    if (hasLeaf) {
+      verifications.push({ location, type: 'presence', items: itemToCheck.content.map(prop => prop.name)})
+    }
   }
 
   const containerChildren = itemToCheck.content.filter(isContainer);
