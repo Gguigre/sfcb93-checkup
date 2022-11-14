@@ -16,11 +16,11 @@ export const Verification: React.FC<Props> = ({verification, onOk, onIssue}) => 
         <h3>Vérifier que dans <strong style={{color: 'red'}}>{verification.location}</strong> il y a</h3>
         <div style={{flex: 1}}>{verification.items.map(item => <span><br />{item}</span>)}</div>
         <div style={{display: "flex", justifyContent: "space-around"}}>
-          <button onClick={() => onIssue('')} style={{backgroundColor: "red", padding: 8}}>
-            <strong>Problème</strong>
+          <button onClick={() => onIssue('')} style={{padding: 8}}>
+            <strong>❌ Problème</strong>
           </button>
-          <button onClick={onOk} style={{backgroundColor: "greenyellow", padding: 8}}>
-            <strong>Vérifié</strong>
+          <button onClick={onOk} style={{padding: 8}}>
+            <strong>✅ Vérifié</strong>
           </button>
         </div>
       </div>
@@ -32,11 +32,11 @@ export const Verification: React.FC<Props> = ({verification, onOk, onIssue}) => 
       <h3>Vérifier la date de <strong style={{color: 'red'}}>{verification.location}</strong><br /></h3>
       <div style={{flex: 1}}>{verification.name} : <input type={"month"}/></div>
       <div style={{display: "flex", justifyContent: "space-around"}}>
-          <button onClick={() => onIssue('')} style={{backgroundColor: "red", padding: 8}}>
-            <strong>Problème</strong>
+          <button onClick={() => onIssue('')} style={{padding: 8}}>
+            <strong>❌ Problème</strong>
           </button>
-          <button onClick={onOk} style={{backgroundColor: "greenyellow", padding: 8}}>
-            <strong>Vérifié</strong>
+          <button onClick={onOk} style={{padding: 8}}>
+            <strong>✅ Vérifié</strong>
           </button>
         </div>
       </div>
@@ -49,11 +49,11 @@ export const Verification: React.FC<Props> = ({verification, onOk, onIssue}) => 
                 <strong style={{color: 'green'}}>{verification.name}</strong>
               </div>
               <div style={{display: "flex", justifyContent: "space-around"}}>
-                <button onClick={() => onIssue('')} style={{backgroundColor: "red", padding: 8}}>
-                  <strong>Problème</strong>
+                <button onClick={() => onIssue('')} style={{padding: 8}}>
+                  <strong>❌ Problème</strong>
                 </button>
-                <button onClick={onOk} style={{backgroundColor: "greenyellow", padding: 8}}>
-                  <strong>Vérifié</strong>
+                <button onClick={onOk} style={{padding: 8}}>
+                  <strong>✅ Vérifié</strong>
                 </button>
               </div>
             </div>
