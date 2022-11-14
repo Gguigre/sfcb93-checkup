@@ -2,6 +2,7 @@ import React, { PropsWithChildren } from "react";
 import styled from 'styled-components'
 import { Review as ReviewType } from "../business/review";
 import { Buttons } from "./Buttons";
+import { Check } from "./Check";
 
 type Props = {
   review: ReviewType,
@@ -29,7 +30,7 @@ export const Review: React.FC<Props> = ({review, onOk, onIssue}) => {
       Title={<h3>Vérifier que dans <RedText>{review.location}</RedText> il y a</h3>}
       onOk={onOk}
       onIssue={() => onIssue('problème avec ' + review.location)}>
-      {review.items.map(item => <span><br />{item}</span>)}
+      {review.items.map(item => <Check key={item} onValueChange={() => {}} label={item}></Check>)}
     </GenericReview>
     : null
   } else if (review.type === 'date') {
