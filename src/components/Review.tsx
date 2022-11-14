@@ -10,7 +10,7 @@ type Props = {
   onIssue: (issue: string) => void,
 }
 
-const GenericReview = ({ onOk, onIssue, Title, canSubmit, children }: PropsWithChildren<{onOk: () => void, onIssue: () => void, Title: React.ReactNode, canSubmit?: boolean}>) => {
+const GenericReview = ({ onOk, onIssue, Title, canSubmit, children }: PropsWithChildren<{onOk: () => void, onIssue: () => void, Title: React.ReactNode, canSubmit: boolean}>) => {
   return <Container>
   <ContentContainer>
     {Title}
@@ -36,11 +36,7 @@ const PresenceReview: React.FC<{
     } else {
       setNbChecked(currentNb => currentNb-1)
     }
-
-    console.warn(nbChecked);
-    
-
-  }, [nbChecked, setNbChecked])
+  }, [setNbChecked])
 
   return review.items.length > 0 ?
   <GenericReview
@@ -58,11 +54,14 @@ const DateReview: React.FC<{
   onOk: () => void,
   onIssue: (issue: string) => void,
 }> = ({review, onOk, onIssue}) => {
+  const [date, setDate] = useState<string | undefined>()
+  
   return <GenericReview
   Title={<h3>Vérifier la date de <RedText>{review.location}</RedText></h3>}
   onOk={onOk}
-  onIssue={() => onIssue('problème avec ' + review.location + ' date')}>
-  {review.name}&nbsp;: <input type="month"/>
+  onIssue={() => onIssue('problème avec ' + review.location + ' date')}
+  canSubmit={!!date}>
+  {review.name}&nbsp;: <input type="month" onChange={(e) => setDate(e.target.value)}/>
 </GenericReview>
 }
 
@@ -71,30 +70,37 @@ const CheckReview: React.FC<{
   review: CheckReviewType,
   onOk: () => void,
   onIssue: (issue: string) => void,
-}> = ({review, onOk, onIssue}) => (
-<GenericReview
-  Title={<h3>Vérification pour <RedText>{review.location}</RedText></h3>}
-  onOk={onOk}
-  onIssue={() => onIssue('problème avec ' + review.location + '\u00a0: ' + review.name)}>
-  {<GreenText>{review.name}</GreenText>}
-</GenericReview>)
+}> = ({review, onOk, onIssue}) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const onValueChange = useCallback((validated: boolean) => {
+    setIsChecked(validated)
+  }, [setIsChecked])
+
+  return (
+    <GenericReview
+      Title={<h3>Vérification pour <RedText>{review.location}</RedText></h3>}
+      onOk={onOk}
+      onIssue={() => onIssue('problème avec ' + review.location + '\u00a0: ' + review.name)}
+      canSubmit={isChecked}
+      >
+      <Check key={review.location+review.name} onValueChange={onValueChange} label={review.name}></Check>
+    </GenericReview>)
+}
 
 export const Review: React.FC<Props> = ({review, ...props}) => {
 
   switch (review.type) {
     case 'check':
-      return <CheckReview review={review} {...props} />
+      return <CheckReview key={JSON.stringify(review)} review={review} {...props} />
     case 'presence':
       return <PresenceReview key={JSON.stringify(review)} review={review} {...props} />
     case 'date':
-      return <DateReview review={review} {...props} />
+      return <DateReview key={JSON.stringify(review)} review={review} {...props} />
   }
-
-  return null;
 }
 
 const Container = styled.div({flexDirection: "column", display: "flex", height: '100%'})
 const ContentContainer = styled.div({padding: 48, flex: 1, display: 'flex', flexDirection: "column"})
 const Content = styled.div({flex: 1})
 const RedText = styled.strong({color: 'red'})
-const GreenText= styled.strong({color: 'green'})
