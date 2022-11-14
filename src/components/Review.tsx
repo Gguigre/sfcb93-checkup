@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import styled from 'styled-components'
-import { Review as ReviewType } from "../business/review";
+import { Review as ReviewType, PresenceReview as PresenceReviewType, DateReview as DateReviewType, CheckReview as CheckReviewType } from "../business/review";
 import { Buttons } from "./Buttons";
 import { Check } from "./Check";
 
@@ -22,31 +22,56 @@ const GenericReview = ({ onOk, onIssue, Title, children }: PropsWithChildren<{on
 </Container>
 }
 
-export const Review: React.FC<Props> = ({review, onOk, onIssue}) => {
+const PresenceReview: React.FC<{
+  review: PresenceReviewType,
+  onOk: () => void,
+  onIssue: (issue: string) => void,
+}> = ({review, onOk, onIssue}) => {
+  return review.items.length > 0 ?
+  <GenericReview
+    Title={<h3>Vérifier que dans <RedText>{review.location}</RedText> il y a</h3>}
+    onOk={onOk}
+    onIssue={() => onIssue('problème avec ' + review.location)}>
+    {review.items.map(item => <Check key={item} onValueChange={() => {}} label={item}></Check>)}
+  </GenericReview>
+  : null
+}
 
-  if (review.type === 'presence') {
-    return review.items.length > 0 ?
-    <GenericReview
-      Title={<h3>Vérifier que dans <RedText>{review.location}</RedText> il y a</h3>}
-      onOk={onOk}
-      onIssue={() => onIssue('problème avec ' + review.location)}>
-      {review.items.map(item => <Check key={item} onValueChange={() => {}} label={item}></Check>)}
-    </GenericReview>
-    : null
-  } else if (review.type === 'date') {
-    return <GenericReview
-      Title={<h3>Vérifier la date de <RedText>{review.location}</RedText></h3>}
-      onOk={onOk}
-      onIssue={() => onIssue('problème avec ' + review.location + ' date')}>
-      {review.name}&nbsp;: <input type="month"/>
-    </GenericReview>
-  } else if (review.type === 'check') {
-    return <GenericReview
-      Title={<h3>Vérification pour <RedText>{review.location}</RedText></h3>}
-      onOk={onOk}
-      onIssue={() => onIssue('problème avec ' + review.location + '\u00a0: ' + review.name)}>
-      {<GreenText>{review.name}</GreenText>}
-    </GenericReview>
+const DateReview: React.FC<{
+  review: DateReviewType,
+  onOk: () => void,
+  onIssue: (issue: string) => void,
+}> = ({review, onOk, onIssue}) => {
+  return <GenericReview
+  Title={<h3>Vérifier la date de <RedText>{review.location}</RedText></h3>}
+  onOk={onOk}
+  onIssue={() => onIssue('problème avec ' + review.location + ' date')}>
+  {review.name}&nbsp;: <input type="month"/>
+</GenericReview>
+}
+
+
+const CheckReview: React.FC<{
+  review: CheckReviewType,
+  onOk: () => void,
+  onIssue: (issue: string) => void,
+}> = ({review, onOk, onIssue}) => (
+<GenericReview
+  Title={<h3>Vérification pour <RedText>{review.location}</RedText></h3>}
+  onOk={onOk}
+  onIssue={() => onIssue('problème avec ' + review.location + '\u00a0: ' + review.name)}>
+  {<GreenText>{review.name}</GreenText>}
+</GenericReview>)
+
+export const Review: React.FC<Props> = ({review, ...props}) => {
+
+  switch (review.type) {
+    case 'check':
+      return <CheckReview review={review} {...props} />
+    case 'presence':
+      return <PresenceReview review={review} {...props} />
+    case 'date':
+      return <DateReview review={review} {...props} />
   }
 
   return null;
