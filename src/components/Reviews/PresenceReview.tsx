@@ -12,6 +12,11 @@ export const PresenceReview: React.FC<{
 
   const [nbChecked, setNbChecked] = useState(0);
 
+  const onIssueCallback = useCallback(
+    () => onIssue('problème avec ' + review.location),
+    [onIssue, review.location]
+  )
+  
   const onValueChange = useCallback((value: boolean) => {
     if (value) {
       setNbChecked(currentNb => currentNb+1)
@@ -24,7 +29,7 @@ export const PresenceReview: React.FC<{
   <GenericReview
     Title={<h3>Vérifier que dans <RedText>{review.location}</RedText> il y a</h3>}
     onOk={onOk}
-    onIssue={() => onIssue('problème avec ' + review.location)}
+    onIssue={onIssueCallback}
     canSubmit={nbChecked === review.items.length}>
     {review.items.map(item => <Check key={item} onValueChange={onValueChange} label={item}></Check>)}
   </GenericReview>

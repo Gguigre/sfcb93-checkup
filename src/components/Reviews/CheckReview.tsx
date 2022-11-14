@@ -11,6 +11,11 @@ export const CheckReview: React.FC<{
 }> = ({review, onOk, onIssue}) => {
   const [isChecked, setIsChecked] = useState(false);
 
+  const onIssueCallback = useCallback(
+    () => onIssue('problème avec ' + review.location + '\u00a0: ' + review.name), 
+    [onIssue, review.location, review.name]
+  )
+
   const onValueChange = useCallback((validated: boolean) => {
     setIsChecked(validated)
   }, [setIsChecked])
@@ -19,7 +24,7 @@ export const CheckReview: React.FC<{
     <GenericReview
       Title={<h3>Vérification pour <RedText>{review.location}</RedText></h3>}
       onOk={onOk}
-      onIssue={() => onIssue('problème avec ' + review.location + '\u00a0: ' + review.name)}
+      onIssue={onIssueCallback}
       canSubmit={isChecked}
       >
       <Check key={review.location+review.name} onValueChange={onValueChange} label={review.name}></Check>
