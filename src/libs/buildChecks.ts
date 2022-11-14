@@ -1,11 +1,8 @@
 import { Container, isCheckable, isContainer } from "../business/Prop";
-import { Verification } from "../business/Verification";
+import { Review } from "../business/review";
 
-
-
-
-export const buildChecksForContainer = (itemToCheck: Container, containerName?: string): Verification[] => {
-  const verifications: Verification[] = []
+export const buildChecksForContainer = (itemToCheck: Container, containerName?: string): Review[] => {
+  const verifications: Review[] = []
   const location = (containerName ? (containerName + " > ") : '') + itemToCheck.name
 
   const isEmpty = itemToCheck.content.length === 0

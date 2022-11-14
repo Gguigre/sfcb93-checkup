@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import { Verification } from './components/Check';
+import { Review } from './components/Review';
 import LotA from "./data/A.json";
-import { buildChecksForContainer } from './scripts/buildChecks';
+import { buildChecksForContainer } from './libs/buildChecks';
 
 const checks = buildChecksForContainer(LotA);
 
@@ -20,13 +20,10 @@ function App() {
     setCheckIndex(checkIndex+1)
   }
 
-  console.log(checks[checkIndex]);
-  
-
   return (
     <div className="App">
       {checks[checkIndex] !== undefined
-      ? <Verification verification={checks[checkIndex]} onOk={onOk} onIssue={onIssue}/>
+      ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue}/>
       : <div>
           {issues.map(issue => <><span>{issue}</span><br /></>)}
         </div>}

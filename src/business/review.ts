@@ -1,10 +1,10 @@
-export type Verification = {
+export type Review = {
   type: 'date' | 'check';
   location: string;
   name?: string;
-} | PresenceVerification
+} | PresenceReview
 
-type PresenceVerification = {
+type PresenceReview = {
   type: 'presence';
   location: string;
   items: string[]
