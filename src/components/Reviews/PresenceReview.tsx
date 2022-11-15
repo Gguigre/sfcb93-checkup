@@ -27,7 +27,7 @@ export const PresenceReview: React.FC<{
 
   return review.items.length > 0 ?
   <GenericReview
-    Title={<h3>Vérifier que dans <RedText>{review.location}</RedText> il y a</h3>}
+    Title={<h1>Vérifier que dans <RedText>{review.location}</RedText> il y a</h1>}
     onOk={onOk}
     onIssue={onIssueCallback}
     canSubmit={nbChecked === review.items.length}>

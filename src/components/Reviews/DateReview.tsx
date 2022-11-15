@@ -30,7 +30,7 @@ export const DateReview: React.FC<{
   }, [isDateInvalid, onIssueCallback, onOk])
 
   return <GenericReview
-    Title={<h3>Vérifier la date de <RedText>{review.location}</RedText></h3>}
+    Title={<h1>Vérifier la date de <RedText>{review.location}</RedText></h1>}
     onOk={onOkCallback}
     onIssue={onIssueCallback}
     canSubmit={!!date}>

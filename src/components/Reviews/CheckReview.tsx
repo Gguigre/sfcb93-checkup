@@ -22,7 +22,7 @@ export const CheckReview: React.FC<{
 
   return (
     <GenericReview
-      Title={<h3>Vérification pour <RedText>{review.location}</RedText></h3>}
+      Title={<h1>Vérification pour <RedText>{review.location}</RedText></h1>}
       onOk={onOk}
       onIssue={onIssueCallback}
       canSubmit={isChecked}
