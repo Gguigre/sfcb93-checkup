@@ -1,4 +1,4 @@
-import { Container, isCheckable, isContainer } from "../business/Prop";
+import { Container, isCheckable, isContainer, Prop } from "../business/Prop";
 import { Review } from "../business/review";
 
 export const buildChecksForContainer = (itemToCheck: Container, containerName?: string): Review[] => {
@@ -9,7 +9,11 @@ export const buildChecksForContainer = (itemToCheck: Container, containerName?: 
   if (!isEmpty) {
     const hasLeaf = itemToCheck.content.some(child => (child as Container).content === undefined)
     if (hasLeaf) {
-      verifications.push({ location, type: 'presence', items: itemToCheck.content.map(prop => prop.name)})
+      verifications.push({
+        location,
+        type: 'presence',
+        items: getContentChecklist(itemToCheck)
+      })
     }
   }
 
@@ -34,4 +38,12 @@ export const buildChecksForContainer = (itemToCheck: Container, containerName?: 
   )
 
   return verifications
+}
+
+export const getContentChecklist = (itemToCheck: Container) => {
+  return itemToCheck.content.reduce<Array<string>>(
+    (previousValue: string[], currentValue: Prop) => {
+      return isContainer(currentValue) ? previousValue : [`${currentValue.number} ${currentValue.name}` , ...previousValue]
+    },
+  [])
 }

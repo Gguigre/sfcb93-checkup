@@ -22,5 +22,5 @@ export const GenericReview: React.FC<{
 }
 
 const Container = styled.div({flexDirection: "column", display: "flex", height: '100%'})
-const ContentContainer = styled.div({padding: 48, flex: 1, display: 'flex', flexDirection: "column"})
+const ContentContainer = styled.div({flex: 1, display: 'flex', flexDirection: "column"})
 const Content = styled.div({flex: 1})

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import styled from 'styled-components';
 import { Review } from './components/Review';
 import LotA from "./data/A.json";
 import { buildChecksForContainer } from './libs/buildChecks';
@@ -21,14 +21,23 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <AppContainer>
       {checks[checkIndex] !== undefined
       ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue}/>
       : <div>
           {issues.map(issue => <><span>{issue}</span><br /></>)}
         </div>}
-    </div>
+    </AppContainer>
   );
 }
+
+const AppContainer = styled.div({
+  padding: 16,
+  paddingBottom: 48,
+  textAlign: 'center',
+  backgroundColor: '#282c34',
+  color: 'white',
+  height: '100vh',
+})
 
 export default App;
