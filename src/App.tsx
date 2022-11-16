@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Issue } from './business/Issue';
+import { IssuesSumUp } from './components/IssuesSumUp';
 import { Review } from './components/Review';
 import LotA from "./data/A.json";
 import { buildChecksForContainer } from './libs/buildChecks';
@@ -25,9 +26,7 @@ function App() {
     <AppContainer>
       {checks[checkIndex] !== undefined
       ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue}/>
-      : <div>
-          {issues.map(issue => <>{JSON.stringify(issue)}<br /></>)}
-        </div>}
+      : <IssuesSumUp issues={issues} />}
     </AppContainer>
   );
 }
@@ -35,7 +34,6 @@ function App() {
 const AppContainer = styled.div({
   padding: 16,
   paddingBottom: 48,
-  textAlign: 'center',
   backgroundColor: '#282c34',
   color: 'white',
   height: '100vh',

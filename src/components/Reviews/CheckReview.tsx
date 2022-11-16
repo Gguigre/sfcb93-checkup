@@ -14,7 +14,7 @@ export const CheckReview: React.FC<{
 
   const onIssueCallback = useCallback(
     () => {
-      const description = window.prompt('Description du problème', `n'est pas ${review.name}`)
+      const description = window.prompt('Description du problème', `Problème : ${review.name}`)
       if (description) {
         onIssue({
           location: review.location,
