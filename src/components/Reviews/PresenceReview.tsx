@@ -35,7 +35,7 @@ export const PresenceReview: React.FC<{
   },[checkedItems])
   const onUncheck = useCallback((item: string) => {
     if (checkedItems.includes(item)) {
-      setCheckedItems(currentCheckedItems => currentCheckedItems.filter(checkedItem => checkedItem === item))
+      setCheckedItems(currentCheckedItems => currentCheckedItems.filter(checkedItem => checkedItem !== item))
     }
   },[checkedItems])
 
