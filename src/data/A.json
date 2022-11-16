@@ -70,12 +70,7 @@
             { "number": 1, "name": "Aspirateur de mucosité"},
             { "number": 5, "name": "Sondes d’aspiration Adulte"},
             { "number": 3, "name": "Sondes d’aspiration Enfant"},
-            { "number": 1, "name": "Canule de Guedel Taille 0"},
-            { "number": 1, "name": "Canule de Guedel Taille 1"},
-            { "number": 1, "name": "Canule de Guedel Taille 2"},
-            { "number": 1, "name": "Canule de Guedel Taille 3"},
-            { "number": 1, "name": "Canule de Guedel Taille 4"},
-            { "number": 1, "name": "Canule de Guedel Taille 5"}
+            { "number": 6, "name": "Canule de Guedel Taille 0 à 5"}
           ]
         },
         {

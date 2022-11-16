@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled from 'styled-components';
+import { Issue } from "../../business/Issue";
 import { CheckReview as CheckReviewType } from "../../business/review";
 import { Check } from "../Check";
 import { GenericReview } from "./GenericReview";
@@ -7,12 +8,20 @@ import { GenericReview } from "./GenericReview";
 export const CheckReview: React.FC<{
   review: CheckReviewType,
   onOk: () => void,
-  onIssue: (issue: string) => void,
+  onIssue: (issue: Issue) => void,
 }> = ({review, onOk, onIssue}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const onIssueCallback = useCallback(
-    () => onIssue('problème avec ' + review.location + '\u00a0: ' + review.name), 
+    () => {
+      const description = window.prompt('Description du problème', `n'est pas ${review.name}`)
+      if (description) {
+        onIssue({
+          location: review.location,
+          description
+        })
+      }
+    },
     [onIssue, review.location, review.name]
   )
 
