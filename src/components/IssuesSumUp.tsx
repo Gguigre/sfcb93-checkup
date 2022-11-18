@@ -15,6 +15,8 @@ export const IssuesSumUp: React.FC<Props> = ({issues}) => {
 
   const onChiefNameChange = (e: ChangeEvent<HTMLInputElement>) => { setChiefName(e.target.value) }
 
+  const mailTo = `mailto:gui.gremi@gmail.com?subject=${encodeURIComponent(`[${hasIssues ? `${issues.length} problèmes` : <h3>R.A.S.</h3>}]`)}&body=${encodeURIComponent(`Date : ${(new Date()).toLocaleString()} \n Chef de poste : ${chiefName} \n\n\n ${hasIssues && issues.map(issue => `[${issue.location}]\n ${issue.description}\n\n`)}`)}`
+
   return <div>
     <h1>Résumé des problèmes rencontrés</h1>
     <h2>Liste des problèmes</h2>
@@ -24,9 +26,11 @@ export const IssuesSumUp: React.FC<Props> = ({issues}) => {
       <strong>Nom du chef de poste : </strong>
       <input type={'text'} onChange={onChiefNameChange}/>
 
-      <Button onClick={() => {}} disabled={!!chiefName}>
+      <a href={chiefName ? mailTo :`#`}>
+      <Button disabled={!chiefName} type="submit">
         <strong>✅ Vérifié</strong>
       </Button>
+      </a>
     </div>
   </div>
 }
