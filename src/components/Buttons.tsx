@@ -18,5 +18,5 @@ export const Buttons: React.FC<Props> = ({onOk, onIssue, canSubmit}) => {
 </Container>
 }
 
-const Container = styled.div({display: "flex", justifyContent: "space-around"})
+const Container = styled.div({display: "flex", justifyContent: "space-around", paddingBottom: 32, paddingtop: 16})
 const Button = styled.button({padding: 8})

@@ -32,11 +32,11 @@ function App() {
 }
 
 const AppContainer = styled.div({
-  padding: 16,
-  paddingBottom: 48,
+  paddingLeft: 16,
+  paddingRight: 16,
   backgroundColor: '#282c34',
   color: 'white',
-  height: '100vh',
+  height: '100%',
 })
 
 export default App;
