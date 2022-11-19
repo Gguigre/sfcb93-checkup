@@ -9,6 +9,7 @@ type Props = {
   review: ReviewType,
   onOk: () => void,
   onIssue: (issue: Issue) => void,
+  progress: number
 }
 
 export const Review: React.FC<Props> = ({review, ...props}) => {

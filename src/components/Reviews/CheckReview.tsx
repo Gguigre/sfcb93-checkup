@@ -7,9 +7,10 @@ import { GenericReview } from "./GenericReview";
 
 export const CheckReview: React.FC<{
   review: CheckReviewType,
+  progress: number,
   onOk: () => void,
   onIssue: (issue: Issue) => void,
-}> = ({review, onOk, onIssue}) => {
+}> = ({review, onOk, onIssue, progress}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const onIssueCallback = useCallback(
@@ -32,6 +33,7 @@ export const CheckReview: React.FC<{
   return (
     <GenericReview
       Title={<h1>Vérification pour <RedText>{review.location}</RedText></h1>}
+      progress={progress}
       onOk={onOk}
       onIssue={onIssueCallback}
       canSubmit={isChecked}

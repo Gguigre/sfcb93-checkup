@@ -9,7 +9,8 @@ export const PresenceReview: React.FC<{
   review: PresenceReviewType,
   onOk: () => void,
   onIssue: (issue: Issue) => void,
-}> = ({review, onOk, onIssue}) => {
+  progress: number,
+}> = ({review, progress, onOk, onIssue}) => {
 
   const [checkedItems, setCheckedItems] = useState<Array<string>>([]);
 
@@ -42,6 +43,7 @@ export const PresenceReview: React.FC<{
   return review.items.length > 0 ?
   <GenericReview
     Title={<h1>Vérifier que dans <RedText>{review.location}</RedText> il y a</h1>}
+    progress={progress}
     onOk={onOk}
     onIssue={onIssueCallback}
     canSubmit={checkedItems.length === review.items.length}>

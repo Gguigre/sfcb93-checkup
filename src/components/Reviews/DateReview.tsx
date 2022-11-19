@@ -17,11 +17,12 @@ const isPast = (date: string) => {
 
 type Props = {
   review: DateReviewType,
+  progress: number,
   onOk: () => void,
   onIssue: (issue: Issue) => void,
 }
 
-export const DateReview: React.FC<Props> = ({review, onOk, onIssue}) => {
+export const DateReview: React.FC<Props> = ({review, progress, onOk, onIssue}) => {
   const [date, setDate] = useState<string | undefined>()
   const isDateInvalid = date ? isWithin30Days(date) : false;
 
@@ -52,6 +53,7 @@ export const DateReview: React.FC<Props> = ({review, onOk, onIssue}) => {
 
   return <GenericReview
     Title={<h1>Vérifier la date de <RedText>{review.location}</RedText></h1>}
+    progress={progress}
     onOk={onOkCallback}
     onIssue={onIssueCallback}
     canSubmit={!!date}>

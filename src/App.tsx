@@ -25,7 +25,7 @@ function App() {
   return (
     <AppContainer>
       {checks[checkIndex] !== undefined
-      ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue}/>
+      ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue} progress={checks.length > 0 ? checkIndex/checks.length : 0}/>
       : <IssuesSumUp issues={issues} />}
     </AppContainer>
   );
