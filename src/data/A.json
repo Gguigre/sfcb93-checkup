@@ -58,7 +58,107 @@
     },
     {
       "name": "Sac PS",
-      "content": []
+      "content": [
+        {
+          "name": "Poche dessus",
+          "content":
+          [
+            {
+              "number": 1,
+              "name":	"Lampe de poche",
+              "checks": [{"name": "S'allume", "type": "check"}]
+            }
+          ]
+        },
+        {
+          "name":"Poche extérieur gauche + droite",
+          "content": [
+            {"number": 2, "name": "Bouteilles d'eau 0,5l"},
+            {"number": 20, "name": "Sucre emballé"},
+            {"number": 3, "name": "Verre en plastique"}
+          ]
+        },
+        {
+          "name": "Poche avant  haute",
+          "content": [
+            {"number": 4, "name": "Boite de gants toutes tailles"},
+            {"number": 1, "name": "S.H.A ,100ml"}
+          ]
+        },
+        {
+          "name":"Poche avant basse",
+          "content": [
+            {"number": 2, "name": "Paire de gant de chantier de tailles différentes"},
+            {"number": 1, "name": "Rouleau de rubalise"},
+            {"number": 1, "name": "Rouleau de sac a risque infectieux (DASRI – jaune)"},
+            {"number": 1, "name": "Conteneur OPTC"},
+            {"number": 1, "name": "Rouleau de sac DAOM"},
+            {"number": 1, "name": "Surfa’Safe"}
+          ]
+        },
+        {
+          "name":"Poche centrale ",
+          "content": [
+            {
+              "name":"Sacoche bilan",
+              "content": [
+                {"number": 1, "name": "Thermomètre tympanique", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 2, "name": "Boite d’embouts tympanique"},
+                {"number": 1, "name": "Thermomètre", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 10, "name": "Protections pour thermomètre"},
+                {"number": 1, "name": "Tensiomètre manuel", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 1, "name": "Stéthoscope"},
+                {"number": 1, "name": "Tensiomètre électronique", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 1, "name": "Oxymètre de pouls", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 1, "name": "Stylo lampe", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 1, "name": "Glucomètre avec bandelettes et auto-piqueurs", "checks": [{"name": "S'allume", "type": "check"}, {"name": "Date de péremption", "type": "date"}]}
+              ]
+            },
+            {
+              "name":"Sacoche Désinfection",
+              "content": [
+                {"number": 1, "name": "Pince à échardes"},
+                {"number": 1, "name": "Bande extensible 10cm"},
+                {"number": 1, "name": "Bande extensible 7 cm"},
+                {"number": 1, "name": "Bande extensible 5cm"},
+                {"number": 10, "name": "Compresse stérile"},
+                {"number": 10, "name": "Uni-dose de Chlorhexidine"},
+                {"number": 10, "name": "Uni-dose de sérum physiologique"}
+              ]
+            },
+            {
+              "name":"Sacoche Pansement",
+              "content": [
+                {"number": 1, "name": "Rouleau de ruban adhésif"},
+                {"number": 1, "name": "Ciseau a pansement"},
+                {"number": 2, "name": "Champ stérile"},
+                {"number": 4, "name": "Pansement stérile Petit Modèle"},
+                {"number": 3, "name": "Pansement stérile Moyen Modèle"},
+                {"number": 3, "name": "Pansement stérile Grand Modèle"},
+                {"number": 1, "name": "Rouleaux pansement à découper"}
+              ]
+            },
+            {
+              "name":"Sacoche urgences",
+              "content": [
+                {"number": 1, "name": "Ciseaux Gesco"},
+                {"number": 2, "name": "C.H.U.T"},
+                {"number": 1, "name": "Garrot tourniquet"},
+                {"number": 1, "name": "Garrot"}
+              ]
+            },
+            {
+              "name":"Sacoche divers",
+              "content": [
+                {"number": 2, "name": "Echarpes"},
+                {"number": 2, "name": "Couverture de survie"},
+                {"number": 2, "name": "Poches de froid"},
+                {"number": 1, "name": "Coussin PLS"}
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Sac O2",
