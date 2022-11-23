@@ -104,9 +104,9 @@
               "content": [
                 {"number": 1, "name": "Thermomètre tympanique", "checks": [{"name": "S'allume", "type": "check"}]},
                 {"number": 2, "name": "Boite d’embouts tympanique"},
-                {"number": 1, "name": "Thermomètre", "checks": [{"name": "S'allume", "type": "check"}]},
-                {"number": 10, "name": "Protections pour thermomètre"},
-                {"number": 1, "name": "Tensiomètre manuel", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 1, "name": "Thermomètre axillaire", "checks": [{"name": "S'allume", "type": "check"}]},
+                {"number": 10, "name": "Protections pour thermomètre axillaire"},
+                {"number": 1, "name": "Tensiomètre manuel"},
                 {"number": 1, "name": "Stéthoscope"},
                 {"number": 1, "name": "Tensiomètre électronique", "checks": [{"name": "S'allume", "type": "check"}]},
                 {"number": 1, "name": "Oxymètre de pouls", "checks": [{"name": "S'allume", "type": "check"}]},
