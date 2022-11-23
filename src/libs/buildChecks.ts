@@ -43,7 +43,7 @@ export const buildChecksForContainer = (itemToCheck: Container, containerName?: 
 export const getContentChecklist = (itemToCheck: Container) => {
   return itemToCheck.content.reduce<Array<string>>(
     (previousValue: string[], currentValue: Prop) => {
-      return isContainer(currentValue) ? previousValue : [`${currentValue.number} ${currentValue.name}` , ...previousValue]
+      return isContainer(currentValue) ? previousValue : [`${currentValue.number} x ${currentValue.name}` , ...previousValue]
     },
   [])
 }

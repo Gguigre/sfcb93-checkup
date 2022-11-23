@@ -16,7 +16,7 @@ export const PresenceReview: React.FC<{
 
   const onIssueCallback = useCallback(
     () => {
-      const uncheckedItems = review.items.filter(item => !checkedItems.includes(item))
+      const uncheckedItems = review.items.filter(item => !checkedItems.includes(item)).map(item => item.replace(/([\d]+) x (.+)/ig, `$2`))
       const description = window.prompt('Description du problème', `Il manque ${uncheckedItems}`)
       if (description) {
         onIssue({
