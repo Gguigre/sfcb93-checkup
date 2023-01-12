@@ -1,5 +1,5 @@
 {
-  "name": "Lot A",
+  "name": "Lot A Noisy",
   "content": [
     {
       "name": "Matériel hors sac",
@@ -79,7 +79,7 @@
           ]
         },
         {
-          "name": "Poche avant  haute",
+          "name": "Poche avant haute",
           "content": [
             {"number": 4, "name": "Boite de gants toutes tailles"},
             {"number": 1, "name": "S.H.A ,100ml"}
@@ -97,10 +97,10 @@
           ]
         },
         {
-          "name":"Poche centrale ",
+          "name":"Poche centrale",
           "content": [
             {
-              "name":"Sacoche bilan",
+              "name":"Bilan",
               "content": [
                 {"number": 1, "name": "Thermomètre tympanique", "checks": [{"name": "S'allume", "type": "check"}]},
                 {"number": 2, "name": "Boite d’embouts tympanique"},
@@ -108,52 +108,58 @@
                 {"number": 10, "name": "Protections pour thermomètre axillaire"},
                 {"number": 1, "name": "Tensiomètre manuel"},
                 {"number": 1, "name": "Stéthoscope"},
-                {"number": 1, "name": "Tensiomètre électronique", "checks": [{"name": "S'allume", "type": "check"}]},
                 {"number": 1, "name": "Oxymètre de pouls", "checks": [{"name": "S'allume", "type": "check"}]},
-                {"number": 1, "name": "Stylo lampe", "checks": [{"name": "S'allume", "type": "check"}]},
-                {"number": 1, "name": "Glucomètre avec bandelettes et auto-piqueurs", "checks": [{"name": "S'allume", "type": "check"}, {"name": "Date de péremption", "type": "date"}]}
+                {"number": 1, "name": "Stylo lampe", "checks": [{"name": "S'allume", "type": "check"}]}
               ]
             },
             {
-              "name":"Sacoche Désinfection",
+              "name":"Glycémie",
               "content": [
-                {"number": 1, "name": "Pince à échardes"},
-                {"number": 1, "name": "Bande extensible 10cm"},
-                {"number": 1, "name": "Bande extensible 7 cm"},
-                {"number": 1, "name": "Bande extensible 5cm"},
+                {"number": 1, "name": "Glucomètre avec bandelettes et auto-piqueurs", "checks": [{"name": "S'allume", "type": "check"}, {"name": "Date de péremption", "type": "date"}]},
+                {"number": 10, "name": "Uni-dose de sérum physiologique"},
+                {"number": 10, "name": "Compresse non stérile"}
+              ]
+            },
+            {
+              "name":"Pst/Desinf",
+              "content": [
                 {"number": 10, "name": "Compresse stérile"},
-                {"number": 10, "name": "Uni-dose de Chlorhexidine"},
-                {"number": 10, "name": "Uni-dose de sérum physiologique"}
-              ]
-            },
-            {
-              "name":"Sacoche Pansement",
-              "content": [
-                {"number": 1, "name": "Rouleau de ruban adhésif"},
-                {"number": 1, "name": "Ciseau a pansement"},
-                {"number": 2, "name": "Champ stérile"},
-                {"number": 4, "name": "Pansement stérile Petit Modèle"},
+                {"number": 1, "name": "Champ stérile"},
                 {"number": 3, "name": "Pansement stérile Moyen Modèle"},
                 {"number": 3, "name": "Pansement stérile Grand Modèle"},
-                {"number": 1, "name": "Rouleaux pansement à découper"}
+                {"number": 5, "name": "Uni-dose de sérum physiologique"}
               ]
             },
             {
-              "name":"Sacoche urgences",
+              "name":"Hémorragie",
               "content": [
-                {"number": 1, "name": "Ciseaux Gesco"},
-                {"number": 2, "name": "C.H.U.T"},
-                {"number": 1, "name": "Garrot tourniquet"},
-                {"number": 1, "name": "Garrot"}
+                {"number": 2, "name": "Garrot tourniquet"},
+                {"number": 2, "name": "Pansement israëlien"},
+                {"number": 1, "name": "Ciseaux Gesco"}
               ]
             },
             {
-              "name":"Sacoche divers",
+              "name":"Biologique",
+              "content": [
+                {"number": 4, "name": "Masque chirurgical"},
+                {"number": 4, "name": "Masque FFP2"},
+                {"number": 4, "name": "Paire de lunettes"}
+              ]
+            },
+            {
+              "name":"Bandages",
+              "content": [
+                {"number": 1, "name": "Rouleau de ruban adhésif"},
+                {"number": 1, "name": "Bande extensible 15cm"},
+                {"number": 2, "name": "Bande extensible 7cm"}
+              ]
+            },
+            {
+              "name":"Trauma",
               "content": [
                 {"number": 2, "name": "Echarpes"},
-                {"number": 2, "name": "Couverture de survie"},
                 {"number": 2, "name": "Poches de froid"},
-                {"number": 1, "name": "Coussin PLS"}
+                {"number": 1, "name": "Bande extensible 15cm"}
               ]
             }
           ]
