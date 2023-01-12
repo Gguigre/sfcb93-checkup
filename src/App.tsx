@@ -5,6 +5,7 @@ import { Container } from './business/Prop';
 import { IssuesSumUp } from './components/IssuesSumUp';
 import { LotChoice } from './components/LotChoice';
 import { Review } from './components/Review';
+import SFCBLogo from "./assets/Croix-Blanche_Logo.png";
 import LotANoisy from "./data/A_Noisy.json";
 import LotASTDenis from "./data/A_St-Denis.json";
 import { buildChecksForContainer } from './libs/buildChecks';
@@ -38,8 +39,21 @@ function App() {
     setCheckIndex(checkIndex+1)
   }
 
+  const onRestart = () => {
+    setCheckIndex(0)
+    setIssues([])
+    setLot(null)
+  }
+
   return (
     <AppContainer>
+      <Header>
+        <Title>
+          <Logo src={SFCBLogo} alt="Logo SFCB"/>
+          Vérification du matériel SFCB93
+        </Title>
+        <RestartButton onClick={onRestart}>🔁 Restart</RestartButton>
+      </Header>
       {lot === null ? <LotChoice choices={lotChoices} onChoice={onLotChoice} /> : checks[checkIndex] !== undefined
       ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue} progress={checks.length > 0 ? checkIndex/checks.length : 0}/>
       : <IssuesSumUp issues={issues} />}
@@ -54,5 +68,27 @@ const AppContainer = styled.div({
   color: 'white',
   height: '100%',
 })
+const Header = styled.div({
+  padding: 16,
+  backgroundColor: '#282c34',
+  borderBottom: "2px solid white",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between"
+})
+const RestartButton = styled.button({
+  padding: 4,
+  fontWeight: "bolder",
+  fontSize: 16
+})
+const Title = styled.div({
+  display: "flex",
+  alignItems: "center",
+})
+const Logo = styled.img({
+  height: 32,
+  marginRight: 8
+})
+
 
 export default App;
