@@ -54,9 +54,11 @@ function App() {
         </Title>
         <RestartButton onClick={onRestart}>🔁 Restart</RestartButton>
       </Header>
-      {lot === null ? <LotChoice choices={lotChoices} onChoice={onLotChoice} /> : checks[checkIndex] !== undefined
-      ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue} progress={checks.length > 0 ? checkIndex/checks.length : 0}/>
-      : <IssuesSumUp issues={issues} />}
+      <AppContent>
+        {lot === null ? <LotChoice choices={lotChoices} onChoice={onLotChoice} /> : checks[checkIndex] !== undefined
+        ? <Review review={checks[checkIndex]} onOk={onOk} onIssue={onIssue} progress={checks.length > 0 ? checkIndex/checks.length : 0}/>
+        : <IssuesSumUp issues={issues} />}
+      </AppContent>
     </AppContainer>
   );
 }
@@ -67,6 +69,11 @@ const AppContainer = styled.div({
   backgroundColor: '#282c34',
   color: 'white',
   height: '100%',
+  display: "flex",
+  flexDirection: "column"
+})
+const AppContent = styled.div({
+  flex: 1
 })
 const Header = styled.div({
   padding: 16,
