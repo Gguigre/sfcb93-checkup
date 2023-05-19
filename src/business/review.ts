@@ -16,4 +16,5 @@ export type DateReview = {
   type: 'date';
   location: string;
   name: string;
+  mandatory?: boolean;
 }

@@ -7,7 +7,7 @@
         {
           "name": "Relevage/Brancardage",
           "content": [
-            {"name":"Brancard souple", "number": 1 },
+            {"name":"Brancard civière", "number": 1 },
             {"name":"Draps usage unique", "number": 5},
             {"name":"Portoir souple", "number": 1 },
             {"name":"Couvertures bactériostatique", "number": 2 },
@@ -32,8 +32,8 @@
             {"number":1, "name":"Aspirateur de mucosité électrique", "checks": [{"name": "En charge", "type": "check"}, {"name": "Fonctionne aspiration maximale", "type": "check"}]},
             {"number":2, "name":"Bouteille O2 de 5L", "checks": [{"name": "Pression > 200bar ou autre bouteille", "type": "check"}]},
             {"number":2, "name":"D.S.A", "checks": [{"name": "S'allume, batterie OK", "type": "check"}]},
-            {"number":2, "name":"Paire d'électrodes enfant", "checks": [{"name": "Date de péremption", "type": "date"}]},
-            {"number":4, "name":"Paire d’électrodes adultes", "checks": [{"name": "Date de péremption", "type": "date"}]}
+            {"number":2, "name":"Paire d'électrodes enfant", "checks": [{"name": "Date de péremption", "type": "date", "mandatory": true}]},
+            {"number":4, "name":"Paire d’électrodes adultes", "checks": [{"name": "Date de péremption", "type": "date", "mandatory": true}]}
           ]
         },
         {
