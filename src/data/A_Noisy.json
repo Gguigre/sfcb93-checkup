@@ -93,7 +93,7 @@
             {"number": 1, "name": "Rouleau de sac a risque infectieux (DASRI – jaune)"},
             {"number": 1, "name": "Conteneur OPTC"},
             {"number": 1, "name": "Rouleau de sac DAOM"},
-            {"number": 1, "name": "Surfa’Safe"}
+            {"number": 1, "name": "Surfa’Safe", "checks": [{"name": "Date de péremption", "type": "date"}]}
           ]
         },
         {

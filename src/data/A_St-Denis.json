@@ -93,7 +93,7 @@
             {"number": 1, "name": "Rouleau de sac a risque infectieux (DASRI – jaune)"},
             {"number": 1, "name": "Conteneur OPTC"},
             {"number": 1, "name": "Rouleau de sac DAOM"},
-            {"number": 1, "name": "Surfa’Safe"}
+            {"number": 1, "name": "Surfa’Safe", "checks": [{"name": "Date de péremption", "type": "date"}]}
           ]
         },
         {
@@ -127,7 +127,7 @@
                 {"number": 1, "name": "Champ stérile"},
                 {"number": 3, "name": "Pansement stérile Moyen Modèle"},
                 {"number": 3, "name": "Pansement stérile Grand Modèle"},
-                {"number": 5, "name": "Uni-dose de sérum physiologique"}
+                {"number": 5, "name": "Uni-dose de sérum physiologique", "checks": [{"name": "Date de péremption", "type": "date"}]}
               ]
             },
             {
@@ -173,7 +173,7 @@
           "name": "Poche extérieur gauche ",
           "content": [
             { "number": 4, "name": "Paires de lunette de protection"},
-            { "number": 1, "name": "Aspirateur de mucosité"},
+            { "number": 1, "name": "Aspirateur de mucosité manuel"},
             { "number": 5, "name": "Sondes d’aspiration Adulte"},
             { "number": 3, "name": "Sondes d’aspiration Enfant"},
             { "number": 6, "name": "Canule de Guedel Taille 0 à 5"}
