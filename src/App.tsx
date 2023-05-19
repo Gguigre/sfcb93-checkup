@@ -1,26 +1,17 @@
 import { useState } from "react";
 import styled from "styled-components";
+import SFCBLogo from "./assets/Croix-Blanche_Logo.png";
 import { Issue } from "./business/Issue";
 import { Container } from "./business/Prop";
+import { Review as ReviewType } from "./business/review";
 import { IssuesSumUp } from "./components/IssuesSumUp";
 import { LotChoice } from "./components/LotChoice";
 import { Review } from "./components/Review";
-import SFCBLogo from "./assets/Croix-Blanche_Logo.png";
-import LotANoisy from "./data/A_Noisy.json";
 import LotASTDenis from "./data/A_St-Denis.json";
+import LotCSTDenis from "./data/C_St-Denis.json";
 import { buildChecksForContainer } from "./libs/buildChecks";
-import { Review as ReviewType } from "./business/review";
 
-const lotChoices = [
-  {
-    name: "Lot A Noisy",
-    data: LotANoisy,
-  },
-  {
-    name: "Lot A St Denis",
-    data: LotASTDenis,
-  },
-];
+const lotChoices = [LotCSTDenis, LotASTDenis];
 
 function App() {
   const [checkIndex, setCheckIndex] = useState(0);

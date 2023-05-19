@@ -4,10 +4,7 @@ import { Container } from "../business/Prop";
 import Switch from "react-switch";
 
 type Props = {
-  choices: Array<{
-    name: string;
-    data: Container;
-  }>;
+  choices: Array<Container>;
   onChoice: (choice: Container, isQuickCheck: boolean) => void;
 };
 
@@ -29,11 +26,13 @@ export const LotChoice: React.FC<Props> = ({ choices, onChoice, ...props }) => {
           flexDirection: "row",
         }}
       >
-        <div style={{marginRight: 20, padding: 20}}>Mode vérification rapide</div>
+        <div style={{ marginRight: 20, padding: 20 }}>
+          Mode vérification rapide
+        </div>
         <Switch onChange={handleChange} checked={isQuickCheck} />
       </div>
       {choices.map((choice) => (
-        <Choice onClick={onChoicePress(choice.data)}>{choice.name}</Choice>
+        <Choice onClick={onChoicePress(choice)}>{choice.name}</Choice>
       ))}
     </ContainerView>
   );
